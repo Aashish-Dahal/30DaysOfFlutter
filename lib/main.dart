@@ -1,4 +1,5 @@
 import 'package:demo_app/pages/home_page.dart';
+import 'package:demo_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,10 +22,11 @@ class MyApp extends StatelessWidget {
         primaryTextTheme: GoogleFonts.poppinsTextTheme(),
       ),
       darkTheme: ThemeData(brightness: Brightness.dark),
-      initialRoute: '/login',
+      initialRoute: '/',
       routes: {
-        "/": (context) => HomePage(),
-        "/login": (context) => LoginPage()
+        '/': (context) => LoginPage(),
+        MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.loginRoute: (context) => LoginPage()
       },
     );
   }
