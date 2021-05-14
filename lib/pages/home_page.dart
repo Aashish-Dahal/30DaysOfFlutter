@@ -15,7 +15,6 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             "Demo App",
-            style: TextStyle(color: Colors.white),
           ),
         ),
         body: Center(
