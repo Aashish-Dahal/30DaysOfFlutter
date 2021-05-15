@@ -30,13 +30,19 @@ class HomeDetailPage extends StatelessWidget {
                 width: context.screenWidth,
                 child: Column(
                   children: [
-                    catalog.name.text.xl4
+                    15.heightBox,
+                    catalog.name.text.xl3
                         .color(MyTheme.darkBluishColor)
                         .bold
                         .make(),
                     catalog.desc.text.textStyle(context.captionStyle).xl.make(),
+                    "Takimata rebum rebum ipsum sea ut. Voluptua nonumy dolores et ipsum sed, stet rebum voluptua clita invidunt at voluptua sit dolore, invidunt elitr sed takimata ea accusam elitr diam. Rebum."
+                        .text
+                        .textStyle(context.captionStyle)
+                        .make()
+                        .p16()
                   ],
-                ).py64(),
+                ).py32(),
               ),
             ))
           ],
@@ -52,8 +58,8 @@ class HomeDetailPage extends StatelessWidget {
                         backgroundColor:
                             MaterialStateProperty.all(MyTheme.darkBluishColor)),
                     onPressed: () {},
-                    child: "Buy".text.make())
-                .wh(90, 45)
+                    child: "Add to cart".text.make())
+                .wh(120, 45)
           ],
         ).p12(),
       ),
