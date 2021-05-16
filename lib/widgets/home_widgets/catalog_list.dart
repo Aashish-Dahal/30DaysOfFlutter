@@ -1,3 +1,4 @@
+import 'package:demo_app/models/cart_model.dart';
 import 'package:demo_app/models/catalog.dart';
 import 'package:demo_app/pages/home_detail_page.dart';
 import 'package:demo_app/widgets/home_widgets/catalog_image.dart';
@@ -53,13 +54,9 @@ class CatalogItem extends StatelessWidget {
                 alignment: MainAxisAlignment.spaceBetween,
                 children: [
                   "\$${catalog.price}".text.bold.xl.make(),
-                  ElevatedButton(
-                      style: ButtonStyle(
-                          shape: MaterialStateProperty.all(StadiumBorder()),
-                          backgroundColor: MaterialStateProperty.all(
-                              context.theme.buttonColor)),
-                      onPressed: () {},
-                      child: "Add to cart".text.make())
+                  _AddToCart(
+                    catalog: catalog,
+                  )
                 ],
               )
             ],
@@ -67,5 +64,42 @@ class CatalogItem extends StatelessWidget {
         )
       ],
     )).color(context.cardColor).rounded.square(150).make().py16();
+  }
+}
+
+class _AddToCart extends StatefulWidget {
+  final Item catalog;
+  const _AddToCart({
+    Key key,
+    this.catalog,
+  }) : super(key: key);
+
+  @override
+  __AddToCartState createState() => __AddToCartState();
+}
+
+class __AddToCartState extends State<_AddToCart> {
+  bool isAdded = false;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        style: ButtonStyle(
+            shape: MaterialStateProperty.all(StadiumBorder()),
+            backgroundColor:
+                MaterialStateProperty.all(context.theme.buttonColor)),
+        onPressed: () {
+          isAdded = isAdded.toggle();
+          final _catalog = CatalogModel();
+          final _cart = CartModel();
+          _cart.catalog = _catalog;
+          _cart.add(widget.catalog);
+          setState(() {});
+        },
+        child: isAdded
+            ? (Icon(
+                Icons.done,
+                size: 15,
+              ))
+            : "Add to cart".text.make());
   }
 }
