@@ -1,4 +1,3 @@
-import 'package:demo_app/models/cart_model.dart';
 import 'package:demo_app/models/catalog.dart';
 import 'package:demo_app/pages/home_detail_page.dart';
 import 'package:demo_app/widgets/home_widgets/add_to_cart.dart';
